@@ -5,6 +5,7 @@ gradle-wrapper.jar
 /gradlew.bat
 /local.properties
 GeneratedPluginRegistrant.java
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.2.1-bin.zip
 
 # Remember to never publicly share your keystore.
 # See https://flutter.dev/to/reference-keystore

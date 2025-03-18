@@ -11,6 +11,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,23 +19,23 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/svg/ic_home.svg"),
+            icon: _buildIcon("assets/svg/ic_home.svg", 0),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/svg/ic_heart.svg"),
+            icon: _buildIcon("assets/svg/ic_heart.svg", 1),
             label: "Favorite",
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/svg/ic_messages.svg"),
+            icon: _buildIcon("assets/svg/ic_messages.svg", 2),
             label: "Add Post",
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/svg/ic_messages.svg"),
+            icon: _buildIcon("assets/svg/ic_messages.svg", 3),
             label: "Message",
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset("assets/svg/ic_user.svg"),
+            icon: _buildIcon("assets/svg/ic_user.svg", 4),
             label: "User",
           ),
         ],
@@ -52,19 +53,23 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+  Widget _buildIcon(String assetName, int index) {
+    return SvgPicture.asset(
+      assetName,
+      width: currentIndex == index ? 30 : 24,
+      height: currentIndex == index ? 30 : 24,
+      colorFilter: ColorFilter.mode(
+        currentIndex == index ? Colors.black : Colors.black54,
+        BlendMode.srcIn,
+      ),
+    );
+  }
+
   final pages = [
     HomePage(),
-    Center(
-      child: Text("Favorite"),
-    ),
-    Center(
-      child: Text("Add Post"),
-    ),
-    Center(
-      child: Text("Messages"),
-    ),
-    Center(
-      child: Text("User"),
-    )
+    Center(child: Text("Favorite")),
+    Center(child: Text("Add Post")),
+    Center(child: Text("Messages")),
+    Center(child: Text("User"))
   ];
 }

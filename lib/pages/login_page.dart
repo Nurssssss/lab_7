@@ -1,4 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_for_course/translations/codegen_loader.g.dart';
+import 'package:flutter_application_for_course/translations/locale_keys.g.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -180,7 +183,35 @@ class LoginPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(LocaleKeys.hello_text.tr()),
+                    SizedBox(width: 8),
+                    Text(LocaleKeys.edited.tr()),
+                    SizedBox(width: 16),
+                    ElevatedButton(
+                      onPressed: () async {
+                        await context.setLocale(Locale('kk'));
+                      },
+                      child: Text("KK"),
+                    ),
+                    SizedBox(width: 8),
+                    ElevatedButton(
+                      onPressed: () async {
+                        await context.setLocale(Locale('ru'));
+                      },
+                      child: Text("RU"),
+                    ),
+                    SizedBox(width: 8),
+                    ElevatedButton(
+                      onPressed: () async {
+                        await context.setLocale(Locale('en'));
+                      },
+                      child: Text("EN"),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

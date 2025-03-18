@@ -8,13 +8,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.background,
-          centerTitle: true,
-          title: Text("Hello"),
-          actions: [Icon(Icons.location_on_outlined)],
-        ),
-        body: ListView(children: mockUsersFromServer()));
+      appBar: AppBar(
+        backgroundColor: AppColors.background,
+        centerTitle: true,
+        title: Text("Hello"),
+        actions: [Icon(Icons.location_on_outlined)],
+      ),
+      body: ListView.builder(itemBuilder: (context, index) {}),
+    );
   }
 
   List<Widget> mockUsersFromServer() {
